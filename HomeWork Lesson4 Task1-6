@@ -1,0 +1,74 @@
+Task 1.
+def sal():
+    try:
+        time = float(input('Выработка в часах сотрудника '))
+        salary = int(input('Ставка сотрудника. '))
+        bonus = int(input('Премия сотрудника. '))
+        res = time * salary + bonus
+        print(f'Заработная плата сотрудника:  {res}')
+    except ValueError:
+        return print('Not a number')
+sal()
+
+=========================================
+
+Task 2.
+my_list = [7, 21, 5, 12, 1, 9, 11, 3, 14]
+new = [el for el in my_list if el > my_list[my_list.index(el)-1]]
+print(new)
+
+=========================================
+
+Task 3.
+print(f'Числа от 20 до 240 кратные 20 или 21 - {[el for el in range(20, 241) if el % 20 == 0 or el % 21 == 0]}')
+
+=========================================
+
+Task 4.
+my_list = [1, 3, 3, 2, 4, 5, 8, 8, 6, 5]
+my_new_list = [el for el in my_list if my_list.count(el) < 2]
+print(my_new_list)
+
+=========================================
+
+Task 5.
+from functools import reduce
+
+
+def my_func(el_p, el):
+    return el_p * el
+
+print(f'Список четных значений {[el for el in range(99, 1001) if el % 2 == 0]}')
+print(f'Результат перемножения всех элементов списка {reduce(my_func, [el for el in range(99, 1001) if el % 2 == 0])}')
+
+=========================================
+
+Task 6.
+from itertools import count
+
+for el in count(int(input('Введите начальное число '))):
+    print(el) # - беконечный цикл
+
+from itertools import cycle
+
+my_list = [True, 'ABC', 123, None]
+for el in cycle(my_list):
+    print(el) # - беконечный цикл
+    
+=========================================
+
+Task 7.
+def fibo_gen(number):
+    count = 1
+    while count <= number:
+        yield count
+        count += 1
+i = 1
+my_fifteen = []
+for el in fibo_gen(5):
+    if i > 15:
+        break
+    else:
+        my_fifteen.append(el)
+        i += 1
+print(my_fifteen)
